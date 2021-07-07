@@ -86,6 +86,7 @@ I now have two branches on my repo, with data-structure having the following con
 I can compare the changes using `git diff <branch1> <branch2>` and merge the two branches. 
 
 ```bash
+$ git diff main data-structures
 diff --git a/.gitignore b/.gitignore
 new file mode 100644
 index 0000000..5b6a065
