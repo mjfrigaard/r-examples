@@ -101,3 +101,167 @@ vec_factor_ordered <- factor(x = c("low", "med", "high"),
   levels = c("low", "med", "high"), ordered = TRUE)
 str(vec_factor_ordered)
 
+
+# Day 3
+
+# List
+
+list_example <- list(1, "a", TRUE, 1+4i)
+list_example
+
+another_list <- list(title = "numbers", numbers = 1:10, data = TRUE)
+another_list
+
+typeof(cats)
+
+typeof(cats[,1])
+typeof(cats[,2])
+typeof(cats[,3])
+
+typeof(cats[1,])
+
+
+# Matrices
+
+matrix_example <- matrix(0, ncol=6, nrow=3)
+matrix_example
+
+class(matrix_example)
+typeof(matrix_example)
+dim(matrix_example)
+
+nrow(matrix_example)
+ncol(matrix_example)
+
+length(matrix_example)
+
+
+
+# Exploring Data Frames ----
+
+age <- c(2, 3, 5)
+cats
+
+cbind(cats, age)
+
+age <- c(2, 3, 5, 11)
+cbind(cats, age)
+
+age <- c(2,3)
+cbind(cats,age)
+
+age <- c(2,3,5)
+cbind(cats,age)
+cats
+cats <- cbind(cats,age)
+cats
+
+new_row <- list("tortoiseshell", 3.3, TRUE, 9)
+cats <- rbind(cats,new_row)
+cats
+
+cats[-2,]
+cats[c(-2,-4),]
+
+cats[,-3]
+
+cats <- rbind(cats, cats)
+cats
+
+#cbind(), rbind(), nrow(), ncol(), length()
+
+
+# Control flow ----
+
+##if() ----
+
+#if( condition is true ) {
+#     perform action
+#}
+
+#if(condition is true ) {
+#    perform action 1
+#    perform action 2
+#} else {
+#    perform action
+#}
+
+x <- 8
+x
+
+if(x >= 10) {
+  print("x is greater or equal to 10")
+} else if (x > 5) {
+  print("x is > 5, but < 10")
+}else {
+  print("x is less than 10")
+}
+
+#ifelse(condition, action1, action2)
+
+y <- -3
+ifelse(y<0, "y is a negative number", "y is positive or zero")
+
+#any()
+#all()
+
+
+# Repeating operations ----
+## for() ----
+
+#for(iterator in set of values) {
+  #do something with iterator
+#}
+
+for(i in 1:10) {
+  print(i)
+}
+
+for(i in 1:5) {
+  for(j in c('a', 'b', 'c', 'd', 'e')) {
+    print(paste(i,j))
+  }
+}
+
+
+# Vectorization ----
+
+3^(1:6)
+
+x <- 1:4
+x*2
+
+y <- 6:9
+x+y
+
+output_vector <- c()
+for( i in 1:4) {
+  output_vector[i] <- x[i] + y[i]
+}
+output_vector
+
+x > 2
+x
+
+## any() ----
+any(x>2)
+## all() ----
+all(x>2)
+
+log(x)
+
+m <- matrix(1:12, nrow=3, ncol=4)
+m
+
+m * -1
+
+m %*% matrix(1, nrow=4, ncol=1)
+
+m > c(0, 20)
+
+### Challenge ----
+# We’re interested in looking at the sum of the following sequence of fractions:
+#  x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)
+#This would be tedious to type out, and impossible for high values of n. Use vectorisation to compute x when n=100.
+
+sum(1/(1:100)^2)
